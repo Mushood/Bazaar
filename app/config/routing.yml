@@ -1,3 +1,7 @@
+bazaar_store:
+    resource: "@BazaarStoreBundle/Resources/config/routing.yml"
+    prefix:   /
+
 app:
     resource: '@AppBundle/Controller/'
     type: annotation

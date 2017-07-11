@@ -1,0 +1,4 @@
+services:
+#    bazaar_store.example:
+#        class: Bazaar\StoreBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
