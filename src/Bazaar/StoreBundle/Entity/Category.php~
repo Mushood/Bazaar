@@ -72,44 +72,26 @@ class Category
     }
 
     /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->products = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add product
+     * Set category
      *
-     * @param \Bazaar\StoreBundle\Entity\Product $product
+     * @param \Bazaar\StoreBundle\Entity\Category $category
      *
      * @return Category
      */
-    public function addProduct(\Bazaar\StoreBundle\Entity\Product $product)
+    public function setCategory(\Bazaar\StoreBundle\Entity\Category $category)
     {
-        $this->products[] = $product;
+        $this->category = $category;
 
         return $this;
     }
 
     /**
-     * Remove product
+     * Get category
      *
-     * @param \Bazaar\StoreBundle\Entity\Product $product
+     * @return \Bazaar\StoreBundle\Entity\Category
      */
-    public function removeProduct(\Bazaar\StoreBundle\Entity\Product $product)
+    public function getCategory()
     {
-        $this->products->removeElement($product);
-    }
-
-    /**
-     * Get products
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getProducts()
-    {
-        return $this->products;
+        return $this->category;
     }
 }

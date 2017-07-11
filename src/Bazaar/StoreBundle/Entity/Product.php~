@@ -130,28 +130,4 @@ class Product
     {
         return $this->price;
     }
-
-    /**
-     * Set category
-     *
-     * @param \Bazaar\StoreBundle\Entity\Category $category
-     *
-     * @return Product
-     */
-    public function setCategory(\Bazaar\StoreBundle\Entity\Category $category)
-    {
-        $this->category = $category;
-
-        return $this;
-    }
-
-    /**
-     * Get category
-     *
-     * @return \Bazaar\StoreBundle\Entity\Category
-     */
-    public function getCategory()
-    {
-        return $this->category;
-    }
 }

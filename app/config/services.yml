@@ -33,3 +33,10 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
+
+    admin.category:
+        class: Bazaar\StoreBundle\Admin\CategoryAdmin
+        arguments: [~, Bazaar\StoreBundle\Entity\Category, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Category }
+        public: true
