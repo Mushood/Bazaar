@@ -5,6 +5,7 @@ namespace Bazaar\StoreBundle\Command;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\DomCrawler\Crawler;
 
 class ShowTextCommand extends Command
 {
@@ -26,5 +27,19 @@ class ShowTextCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $output->writeln('Some text!');
+        
+        $url = "https://www.academiebeaute.com/fr/maquillage/nos-gammes/maquillage-teint/maquillage-teint/fond-de-teint-soin-regenerant-ivoire-01.html";
+        $html = file_get_contents($url);
+        
+        $css = '.product-shop .price';
+        $crawler  = new Crawler($html);
+        try{
+            $price    = $crawler->filter($css)->text();
+            $output->writeln('Price: '. $price);
+        } catch (\InvalidArgumentException $notFoundException){
+            $output->writeln('Price not found');
+        }
+        
+        
     }
 }
