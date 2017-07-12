@@ -12,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Category
 {
-    
+
     /**
      * @var int
      *
@@ -28,9 +28,9 @@ class Category
      * @ORM\Column(name="title", type="string", length=255, unique=true)
      */
     private $title;
-    
 
-    
+
+
     /**
     * @ORM\OneToMany(targetEntity="Bazaar\StoreBundle\Entity\Product", mappedBy="category")
     */
@@ -79,6 +79,10 @@ class Category
         $this->products = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
+
+    public function __toString() {
+        return $this->title;
+    }
     /**
      * Add product
      *
