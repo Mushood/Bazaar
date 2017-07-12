@@ -82,3 +82,10 @@ fos_user:
     from_email:
              address:        app@yoursite.com
              sender_name:    Your App Admin
+             
+stof_doctrine_extensions:
+    default_locale: en_US
+    orm:
+        default:
+            tree: true
+            timestampable: true          

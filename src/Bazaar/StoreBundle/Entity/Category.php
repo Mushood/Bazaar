@@ -3,6 +3,7 @@
 namespace Bazaar\StoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Category
@@ -36,7 +37,30 @@ class Category
     */
     private $products;
 
+    /**
+     * @var \DateTime $created
+     *
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(type="datetime")
+     */
+    private $created;
 
+    /**
+     * @var \DateTime $updated
+     *
+     * @Gedmo\Timestampable(on="update")
+     * @ORM\Column(type="datetime")
+     */
+    private $updated;
+
+    /**
+     * @var \DateTime $contentChanged
+     *
+     * @ORM\Column(type="datetime", nullable=true)
+     * @Gedmo\Timestampable(on="change", field={"title", "body"})
+     */
+    private $contentChanged;
+    
     /**
      * Get id
      *
@@ -81,7 +105,7 @@ class Category
 
 
     public function __toString() {
-        return $this->title;
+        return $this->title != '' ? $this->title : '';
     }
     /**
      * Add product
